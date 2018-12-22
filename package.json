@@ -2,7 +2,10 @@
   "name": "slackmojis-register",
   "version": "0.1.0",
   "description": "helpful register for slackmojis",
-  "keywords": ["slack", "slackmojis"],
+  "keywords": [
+    "slack",
+    "slackmojis"
+  ],
   "homepage": "https://github.com/cherryred5959/slackmojis-register",
   "bugs": {
     "url": "https://github.com/cherryred5959/slackmojis-register/issues",
@@ -11,7 +14,13 @@
   "main": "index.js",
   "author": "cherryred5959@gmail.com",
   "license": "MIT",
+  "scripts": {
+    "slack": "node index.js"
+  },
   "dependencies": {
-    "puppeteer": "^1.11.0"
+    "enquirer": "^2.2.0",
+    "node-fetch": "^2.3.0",
+    "puppeteer": "^1.11.0",
+    "signale": "^1.3.0"
   }
 }
