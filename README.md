@@ -1,1 +1,7 @@
-# slackmojis-register
+# Slackmojis Register
+
+Tools for automatically registering emoji of [slackmojis](https://slackmojis.com) sites in your slack workspace
+
+### Getting Start
+* `npm ci`
+* `npm run slack`
