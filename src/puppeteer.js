@@ -43,7 +43,7 @@ module.exports = async (
 
                 images.push({
                     url: imgTag.getAttribute('src'),
-                    name: `${emojiGroup}_${emojiName}`.replace(" ", "_").replace("-", "_"),
+                    name: `${emojiGroup}_${emojiName}`.replace(/ /g, "_").replace(/-/g, "_"),
                 });
             }
 
@@ -96,6 +96,6 @@ module.exports = async (
     } catch (error) {
         throw error;
     } finally {
-        //await browser.close();
+        await browser.close();
     }
 };
