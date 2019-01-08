@@ -1,0 +1,32 @@
+{
+  "env": {
+    "browser": false,
+    "node": true,
+    "es6": true
+  },
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always",
+        "objects": "ignore",
+        "imports": "always",
+        "exports": "always",
+        "functions": "never"
+      }
+    ],
+    "linebreak-style": "off",
+    "indent": [
+      "error",
+      2
+    ],
+    "semi": "error",
+    "no-trailing-spaces": "off"
+  }
+}
