@@ -16,8 +16,11 @@
   "engines": {
     "node": ">=10"
   },
+  "bin": {
+    "slackmojis-register": "./bin/slackmojis-register"
+  },
   "scripts": {
-    "slackmojis-register": "node index.js"
+    "start": "node ./bin/slackmojis-register"
   },
   "dependencies": {
     "enquirer": "^2.2.0",
