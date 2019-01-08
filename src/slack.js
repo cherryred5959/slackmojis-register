@@ -1,3 +1,3 @@
 module.exports = (workspace) => {
-    return `https://${workspace}.slack.com`;
+  return `https://${workspace}.slack.com`;
 };
