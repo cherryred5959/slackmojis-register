@@ -1,38 +1,16 @@
-'use strict';
-
-const {Snippet} = require('enquirer');
-const slack = require('./slack');
+const { Select } = require('enquirer');
+const options = require('./option');
 
 module.exports = async () => {
-  const prompt = new Snippet({
-    name: 'slack',
-    message: 'Please provide the following information:',
-    required: true,
-    fields: [
-      {
-        name: 'workspace',
-        message: 'Your workspace name',
-      },
-      {
-        type: 'input',
-        name: 'email',
-        message: 'Your email',
-      },
-      {
-        name: 'password',
-        message: 'Your password',
-      },
-      {
-        name: 'prefix',
-        message: 'Emoji prefix',
-      },
-      {
-        name: 'path',
-        message: 'Emoji download path',
-      },
-    ],
-    template: `{\n  "workspace": "${slack("\${workspace}")}",\n  "email": "\${email}",\n  "password": "\${password}",\n  "prefix": "\${prefix}"\n  "directory: "\${path}"\n}`,
+  const prompt = new Select({
+    name: 'option',
+    message: 'What do you want to start?',
+    choices: Object.keys(options),
   });
 
-  return await prompt.run();
+  const selectedOption = await prompt.run();
+
+  const { values } = await options[selectedOption].command();
+
+  return options[selectedOption].handler(values);
 };
