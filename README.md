@@ -4,7 +4,7 @@ Tools for automatically registering emoji of [slackmojis](https://slackmojis.com
 
 ### Getting Start
 * `npm ci`
-* `npm run slack`
+* `npm run slackmojis-register`
 
 ### TODO
 * Emoji clear option
