@@ -2,20 +2,22 @@
   "name": "slackmojis-register",
   "version": "0.1.1",
   "description": "helpful register for slackmojis",
+  "license": "MIT",
+  "author": "cherryred5959@gmail.com",
+  "homepage": "https://github.com/cherryred5959/slackmojis-register",
   "keywords": [
     "slack",
     "slackmojis"
   ],
-  "homepage": "https://github.com/cherryred5959/slackmojis-register",
   "bugs": {
     "url": "https://github.com/cherryred5959/slackmojis-register/issues",
     "email": "cherryred5959@gmail.com"
   },
-  "main": "index.js",
-  "author": "cherryred5959@gmail.com",
-  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
-    "slack": "node index.js"
+    "slackmojis-register": "node index.js"
   },
   "dependencies": {
     "enquirer": "^2.2.0",
