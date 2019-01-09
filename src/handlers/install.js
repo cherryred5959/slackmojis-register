@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
+const signale = require('signale');
 const browser = require('./browser');
 const slack = require('../slack');
 
@@ -15,7 +16,7 @@ const getImages = async (page) => {
       const nameTagInnerText = nameTag.innerText;
 
       const emojiGroup = emojiDomTree.parentNode.parentNode.querySelector('.title').innerText.toLowerCase();
-      const emojiName = nameTagInnerText.split(':').pop();
+      const [, emojiName] = nameTagInnerText.split(':');
 
       images.push({
         url: imgTag.getAttribute('src'),
@@ -91,14 +92,18 @@ const handle = async (page, {
   await page.waitForNavigation();
   await page.waitForSelector('button.p-customize_emoji_wrapper__custom_button');
 
-  await Promise.all(images.map(async (image) => {
-    return emojiUpload(page, {
-      image,
-      prefix,
-      path,
-      workspaceUrl,
-    });
-  }));
+  for (const image of images) {
+    try {
+      await emojiUpload(page, {
+        image,
+        prefix,
+        path,
+        workspaceUrl,
+      });
+    } catch (error) {
+      signale.fatal(error);
+    }
+  }
 };
 
 module.exports = async (information) => {
